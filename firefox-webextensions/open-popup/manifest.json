@@ -1,0 +1,28 @@
+{
+  "description": "Open popup",
+  "manifest_version": 2,
+  "name": "Open popup",
+  "version": "1.0",
+  "homepage_url": "https://github.com/onozaty/sandbox",
+  "icons": {
+    "32": "icons/icon32.png"
+  },
+
+  "permissions": [
+  ],  
+
+  "browser_action": {
+    "default_icon": "icons/icon32.png",
+    "default_title": "Open popup",
+    "default_popup": "popup/popup.html"
+  },
+
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      }
+    }
+  }
+
+}
