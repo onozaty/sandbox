@@ -1,0 +1,20 @@
+{
+  "description": "Inject Keyevent",
+  "manifest_version": 2,
+  "name": "Inject Keyevent",
+  "version": "1.0",
+  "homepage_url": "https://github.com/onozaty/sandbox",
+  "icons": {
+    "32": "icons/icon32.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  }
+
+}
