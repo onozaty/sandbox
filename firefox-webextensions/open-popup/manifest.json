@@ -8,7 +8,12 @@
     "32": "icons/icon32.png"
   },
 
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "permissions": [
+    "tabs", "activeTab"
   ],  
 
   "browser_action": {
