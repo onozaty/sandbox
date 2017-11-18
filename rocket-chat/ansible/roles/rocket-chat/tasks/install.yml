@@ -1,0 +1,19 @@
+- name: Pull Mongo DB image
+  shell: docker pull mongo
+
+- name: Pull Rocket Chat image
+  shell: docker pull rocketchat/rocket.chat
+
+- name: Create application directory
+  file: path={{ item }} state=directory
+  with_items:
+    - /opt/rocket.chat/data/runtime/db
+    - /opt/rocket.chat/data/dump
+
+- name: Copy docker-compose.yml
+  copy: src=docker-compose.yml dest=/opt/rocket.chat/docker-compose.yml
+
+- name: Start docker compose
+  shell: docker-compose up -d
+  args:
+    chdir: /opt/rocket.chat

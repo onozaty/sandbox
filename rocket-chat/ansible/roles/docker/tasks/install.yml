@@ -1,0 +1,29 @@
+# https://docs.docker.com/engine/installation/linux/docker-ce/centos/
+
+- name: Install required packages
+  yum: name={{ item }}
+  with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+
+- name: Add docker repository
+  shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  args:
+    creates: /etc/yum.repos.d/docker-ce.repo
+
+- name: Install docker
+  yum: name=docker-ce
+
+- name: Start docker
+  service: name=docker state=started enabled=yes
+
+# https://docs.docker.com/compose/install/#install-compose
+
+- name: Install docker-compose
+  shell: curl -L https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  args:
+    creates: /usr/local/bin/docker-compose
+
+- name: Apply executable permissions
+  file: dest=/usr/local/bin/docker-compose mode=+x
