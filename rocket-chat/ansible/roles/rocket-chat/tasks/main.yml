@@ -4,6 +4,9 @@
 - name: Pull Rocket Chat image
   shell: docker pull rocketchat/rocket.chat
 
+- name: Pull Hubot image
+  shell: docker pull rocketchat/hubot-rocketchat
+
 - name: Create application directory
   file: path={{ item }} state=directory
   with_items:
