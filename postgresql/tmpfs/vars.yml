@@ -1,3 +1,5 @@
+postgresql_data_dir: /mnt/ram/pg_data
+
 postgresql_databases:
   - name: testdb
 

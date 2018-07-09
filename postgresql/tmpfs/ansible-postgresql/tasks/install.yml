@@ -7,6 +7,12 @@
 - name: Install PostgreSQL
   yum: name=postgresql{{postgresql_version_terse}}-server
 
+- name: Change PGDATA
+  replace: dest={{postgresql_systemd_file}} regexp='^Environment=PGDATA=.+$' replace='Environment=PGDATA={{postgresql_data_dir}}' backup=yes
+
+- name: Systemd daemon-reload
+  command: systemctl daemon-reload
+
 - name: Init database
   command: >
     /usr/pgsql-{{postgresql_version}}/bin/postgresql-{{postgresql_version_terse}}-setup initdb creates={{postgresql_data_dir}}/postgresql.conf
