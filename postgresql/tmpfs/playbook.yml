@@ -1,0 +1,10 @@
+- hosts: all
+  vars_files:
+    - ./vars.yml
+  pre_tasks:
+    - name: Mkdir tmpfs directory
+      file: path=/mnt/ram state=directory owner=root group=root mode=0777
+    - name: Mount tmpfs
+      mount: name=/mnt/ram src=tmpfs fstype=tmpfs opts="size=512m" state=mounted
+  roles:
+    - ansible-postgresql
