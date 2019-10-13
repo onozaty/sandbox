@@ -17,6 +17,9 @@ document.getElementById('outputFile').addEventListener('click', (e) => {
   const downloadLink = document.createElement('a');
   downloadLink.download = 'export.txt';
   downloadLink.href = URL.createObjectURL(new Blob([currentContents], { 'type' : 'text/plain' }));
-  //downloadLink.dataset.downloadurl = ['text/plain', downloadLink.download, downloadLink.href].join(':');
+  downloadLink.setAttribute('hidden', true);
+
+  document.body.appendChild(downloadLink);
   downloadLink.click();
+  downloadLink.remove();
 }, false);
