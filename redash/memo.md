@@ -79,7 +79,7 @@ sudo mkdir /opt/redash
 
 ```
 git clone https://github.com/getredash/setup.git
-sh setup/setup.sh
+sudo sh setup/setup.sh
 ```
 
 インストール完了。

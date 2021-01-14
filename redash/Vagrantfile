@@ -7,5 +7,9 @@ Vagrant.configure(2) do |config|
     vb.memory = 2048
   end
   config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get install git
+    sudo mkdir /opt/redash
+    git clone https://github.com/getredash/setup.git
+    sudo sh setup/setup.sh
   SHELL
 end
