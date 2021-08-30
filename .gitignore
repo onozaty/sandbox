@@ -1,2 +1,3 @@
 **/.vagrant/
 **/playbook.retry
+flyway-schemaspy/schemaspy/output/
