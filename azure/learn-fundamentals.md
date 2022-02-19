@@ -6,6 +6,8 @@ AZ-900: Microsoft Azure の基礎 に合格すると認定される。
 
 * [試験 AZ\-900: Microsoft Azure Fundamentals \- Learn \| Microsoft Docs](https://docs.microsoft.com/ja-jp/learn/certifications/exams/az-900)
 
+Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、無料で受験できる。
+
 ## 学習コンテンツ
 
 ### ラーニングパス
@@ -16,4 +18,4 @@ AZ-900: Microsoft Azure の基礎 に合格すると認定される。
 
 
 続きは下記から
-https://docs.microsoft.com/ja-jp/learn/modules/iot-fundamentals/1-introduction
+https://docs.microsoft.com/ja-jp/learn/modules/ai-machine-learning-fundamentals/
