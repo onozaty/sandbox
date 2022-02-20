@@ -20,4 +20,4 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
 
 続きは下記から
 
-https://docs.microsoft.com/ja-jp/learn/modules/protect-against-security-threats-azure/
+https://docs.microsoft.com/ja-jp/learn/modules/secure-network-connectivity-azure/
