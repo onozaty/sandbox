@@ -21,4 +21,4 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
 
 続きは下記から
 
-https://docs.microsoft.com/ja-jp/learn/modules/build-cloud-governance-strategy-azure/
+https://docs.microsoft.com/ja-jp/learn/modules/examine-privacy-compliance-data-protection-standards/
