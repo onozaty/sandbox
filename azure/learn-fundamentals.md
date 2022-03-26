@@ -84,4 +84,89 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
 
 ### Azure の主要サービスに関する説明
 
-https://docs.microsoft.com/ja-jp/learn/modules/azure-compute-fundamentals/
+* Azure Virtual Machines
+    * IaaS
+    * スケーリング
+        * 仮想マシン スケール セット
+            * 自動的にスケーリング
+        * Azure Batch
+            * 大規模で並列にバッチジョブを実行
+* Azure App Service
+    * PaaS
+    * Webアプリ、APIアプリ、WebJobs、モバイルアプリ
+* Container Instances
+    * スケーリングや負荷分散などは無い
+* Azure Kubernetes Service
+* Functions
+    * サーバレス
+    * イベント契機で実行
+    * 関数の実行中に使用されたCPU時間で課金
+* Azure Logic Apps
+    * Functionsと似ているが、こちらはコードを書くのでは無くワークフローを定義
+* Azure Virtual Desktop
+
+
+* Azure Virtual Network
+    * Azureリソース間の通信
+        * 仮想ネットワーク
+        * サービスエンドポイント
+    * オンプレミスリソースとの通信
+        * Azure VPN Gateway
+            * ポイント対サイト仮想プライベート ネットワーク
+            * サイト間仮想プライベート ネットワーク
+                * Azureのネットワークがローカルネットワークにあるように
+        * Azure ExpressRoute
+            * インターネット経由しない
+                * 環境間(IP VPN)接続、ポイントツーポイントのイーサネット接続、共有施設での接続プロバイダーによる仮想交差接続
+            * 接続モデル
+                * CloudExchange コロケーション
+                * ポイント ツー ポイントのイーサネット接続
+                * Any-to-Any 接続
+            * レイヤー3接続
+    * ネットワーク トラフィックのルーティング
+        * ルートテーブル
+        * Border Gateway Protocol
+            * VPNと共に
+    * ネットワーク トラフィックのフィルター処理
+        * ネットワーク セキュリティ グループ
+        * ネットワーク仮想アプライアンス
+    * 仮想ネットワークのピアリング
+        * 仮想ネットワーク同士をリンク
+
+* Azure Storage
+    * Azure ストレージ アカウント作成から
+    * Disk Storage
+        * Azure 仮想マシンのディスクとして機能
+    * Azure Blob Storage
+        * オブジェクトストレージ
+        * アクセス層
+            * ホットアクセス層
+            * クールアクセス層
+            * アーカイブアクセス層
+    * Azure Files
+        * ファイル共有
+
+* データベース
+    * Azure Cosmos DB
+        * NoSQL
+        * SQL、MongoDB、Cassandra、Tables、Gremlin API がサポート
+    * Azure SQL Database
+        * SQL Server
+    * Azure Database for MySQL
+    * Azure Database for PostgreSQL
+        * Hyperscale (Citus) で分散も
+    * Azure SQL Managed Instance
+        * Azure SQL Database よりオプション等の設定が柔軟
+* 分析サービス
+    * Azure Synapse Analytics
+        * エンタープライズ データ ウェアハウスとビッグ データ分析を組み合わせた無制限の分析サービス
+    * Azure HDInsight
+        * Apache Spark、Apache Hadoop、Apache Kafka、Apache HBase、Apache Storm、Machine Learning Services などを使って分析
+    * Azure Databricks
+        * Apache Spark でのビッグ データ分析
+    * Azure Data Lake Analytics
+        * 超並列データ変換処理プログラムを、U-SQL、R、Python、.NET で容易に開発および実行
+
+
+
+https://docs.microsoft.com/ja-jp/learn/modules/iot-fundamentals/
