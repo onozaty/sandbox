@@ -167,6 +167,37 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
     * Azure Data Lake Analytics
         * 超並列データ変換処理プログラムを、U-SQL、R、Python、.NET で容易に開発および実行
 
+* Azure IoT サービス
+    * Azure IoT Hub
+        * IoTアプリケーションとそれが管理するデバイス間の双方向通信のための中央メッセージハブ
+        * レポート管理のためのダッシュボードが必要なければこれで十分
+            * REST APIでもレポート取得できる
+    * Azure IoT Central
+        * ダッシュボード。IoT Hub上に構築
+        * デバイステンプレート使うと、サービス側でコーディングすることなくデバイスを接続できる
+    * Azure Sphere
+        * エンドツーエンドの安全性の高い IoT ソリューションを作成
+        * 構成
+            * Azure Sphere マイクロコントローラー ユニット (MCU)
+            * カスタマイズされた Linux オペレーティング システム
+            * Azure Sphere Security Service
+
+* Azure Machine Learning
+    * データに接続して、モデルをトレーニング＋テスト
+* Azure Cognitive Services
+    * 事前に構築された機械学習モデルを使用
+    * カテゴリ
+        * 言語
+            * 言語判定、翻訳など
+        * 音声
+            * 音声↔テキストの変換
+        * 視覚
+            * 画像コンテンツの識別
+        * 決定
+    * Personalizerサービス
+        * ユーザのアクションを監視して予測
+* Azure Bot Service
+    * 人間と同様に質問を理解して返答する仮想エージェントを作成するためのプラットフォーム
 
 
-https://docs.microsoft.com/ja-jp/learn/modules/iot-fundamentals/
+https://docs.microsoft.com/ja-jp/learn/modules/serverless-fundamentals/
