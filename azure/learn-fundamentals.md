@@ -199,5 +199,14 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
 * Azure Bot Service
     * 人間と同様に質問を理解して返答する仮想エージェントを作成するためのプラットフォーム
 
+* Azure Functions
+    * プログラミング言語で書く
+    * イベントに応答して実行される1つのメソッドまたは関数をホストできる
+        * HTTP要求、キューの新しいメッセージ、タイマーのメッセージなど
+    * 自動的にスケーリング
+* Azure Logic Apps
+    * ローコードまたはノーコード開発プラットフォーム
+    * ワークフローを定義
+        * APIを介して多数のサービスを接続
 
-https://docs.microsoft.com/ja-jp/learn/modules/serverless-fundamentals/
+https://docs.microsoft.com/ja-jp/learn/modules/azure-devops-devtest-labs/
