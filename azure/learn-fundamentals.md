@@ -223,4 +223,38 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
 * Azure DevTest Labs
     * 仮想マシンの構築が含まれる。様々なOSでビルド、テストができる。
 
-https://docs.microsoft.com/ja-jp/learn/modules/management-fundamentals/
+* Azure portal
+    * ユーザインタフェースがある
+* Azure mobile app
+    * スマートフォンやタブレットからアクセス
+* Azure PowerShell
+* Azure CLI
+    * bash
+    * PowerShellとCLIは同じような機能を提供。慣れた方で。
+    * 1回きりの用途に向いている
+* Azure Resource Manager テンプレート (ARM テンプレート)
+    * JSON形式でリソースを定義
+    * 繰り返しや並列して実施する場合に有効
+    * 検証ステップがある
+
+* Azure Advisor
+    * レコメンテーション
+        * クラウド環境を改善するための新しいレコメンデーションが利用可能になったときに、アラートを受け取れる
+    * カテゴリ
+        * 信頼性
+        * セキュリティ
+        * パフォーマンス
+        * コスト
+        * オペレーショナル エクセレンス
+    * デプロイ済みのリソースの分析
+* Azure Monitor
+    * メトリックとログデータに基づいて収集、分析、視覚化、場合によってアクションを実行
+        * アラートを設定
+    * Azure Application Insights
+* Azure Service Health
+    * Azure のサービス、リージョン、リソースの正常性に関するパーソナライズされたビューを提供
+    * インシデントについてサービス停止の正式な根本原因分析 (RCA) が提供
+
+https://docs.microsoft.com/ja-jp/learn/modules/protect-against-security-threats-azure/
+
+
