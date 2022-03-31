@@ -209,4 +209,18 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
     * ワークフローを定義
         * APIを介して多数のサービスを接続
 
-https://docs.microsoft.com/ja-jp/learn/modules/azure-devops-devtest-labs/
+* Azure DevOps Services
+    * 様々なサービス
+        * Azure Repos
+        * Azure Boards
+        * Azure Pipelines
+        * Azure Artifacts
+        * Azure Test Plans
+    * 細かなアクセス制御ができる
+    * プロジェクト管理とレポートで優れる
+* GitHub、GitHub Actions
+    * OSSでの歴史、パブリックならば
+* Azure DevTest Labs
+    * 仮想マシンの構築が含まれる。様々なOSでビルド、テストができる。
+
+https://docs.microsoft.com/ja-jp/learn/modules/management-fundamentals/
