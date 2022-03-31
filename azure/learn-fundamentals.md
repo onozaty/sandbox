@@ -255,6 +255,30 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
     * Azure のサービス、リージョン、リソースの正常性に関するパーソナライズされたビューを提供
     * インシデントについてサービス停止の正式な根本原因分析 (RCA) が提供
 
-https://docs.microsoft.com/ja-jp/learn/modules/protect-against-security-threats-azure/
+* Azure Security Center
+    * Azure とオンプレミスの両方ですべてのサービスにわたってセキュリティ体制を可視化できる監視サービス
+        * 許可されたアプリケーションの一覧を定義
+        * マルウェアを検出して VM へのインストールをブロック
+* Azure Sentinel
+    * セキュリティ情報およびイベント管理 (SIEM) システム
+    * データ収集、脅威を検出
+* Azure Key Vault
+
+* Azure Dedicated Host
+    * 専用の物理サーバ上で仮想マシンをホスト
+
+* セキュリティ体制
+    * 機密性、整合性、可用性
+* Azure Firewall
+    * Azure Firewall を使用すると、送信 HTTP/S トラフィックを指定した完全修飾ドメイン名 (FQDN) の一覧に制限できる
+    * 外部との通信
+* Azure DDoS Protection
+* ネットワーク セキュリティ グループ
+     * ネットワーク セキュリティ グループ規則を使用すると、送信元と送信先の IP アドレス、ポート、およびプロトコルによって、リソースで送受信されるトラフィックをフィルター処理できる
+     * 仮想ネットワーク間
+* Azure Application Gateway Web アプリケーション ファイアウォール
+
+
+https://docs.microsoft.com/ja-jp/learn/paths/az-900-describe-identity-governance-privacy-compliance-features/
 
 
