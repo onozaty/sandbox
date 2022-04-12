@@ -278,7 +278,63 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
      * 仮想ネットワーク間
 * Azure Application Gateway Web アプリケーション ファイアウォール
 
+* 認証
+* 認可、承認
+* Azure Active Directory
+    * 提供サービス
+        * 認証
+        * シングルサインオン
+        * アプリケーション管理
+        * デバイス管理
+    * Azure AD Connect で既存のActive Directoryとも接続
+* 多要素認証
+    * カテゴリ
+        * ユーザが知っていること
+            * メールアドレス、パスワード
+        * ユーザが持っているもの
+            * スマートフォン
+        * ユーザ自身の特徴
+            * 生体認証
+* 条件付きアクセス
+    * 承認されたデバイスからのみアクセスを許可など
 
-https://docs.microsoft.com/ja-jp/learn/paths/az-900-describe-identity-governance-privacy-compliance-features/
+* ロールベースのアクセス制御 (Azure RBAC)
+    * アクセス許可を定義するロールを作成できる
+    * Azure portal のアクセス制御(IAM)で行う
+* リソースロック
+    * 誤った変更を防ぐ
+    * ロックのレベル
+        * CanNotDelete 
+        * ReadOnly
+* リソースタグ
+    * タグにより、リソースに関する追加情報(メタデータ)が提供される
+    * Azure Policy を使用して、リソースのプロビジョニング時に適切なタグが確実に割り当てられるようにすることもできる
+* Azure Policy
+    * ポリシーに準拠していないものがわかったり、準拠しないものが作れなくなる
+        * 特定のAzureリージョンにはVMがデプロイできないようにするなど
+* Azure Blueprints
+    * 標準に沿った組み込みのBlueprintsがある
+* クラウド導入フレームワーク
+    * サブスクリプション ガバナンス戦略
+
+* コンプライアンス認証
+* Microsoft プライバシーに関する声明
+    * Microsoft が収集する個人データ、Microsoft がそれを使用する方法、およびその目的が記載
+* オンライン サービス条件
+    * Microsoft とお客様の間の法的契約
+* Data Protection Addendum
+    * オンライン サービスのデータ処理およびセキュリティの条項
+* トラストセンター
+    * セキュリティ、プライバシー、およびコンプライアンスに関するリソースにアクセス
+* Azureコンプライアンスドキュメント
+    * Azureサブスクリプションに適用できる一般的な標準の参照ブループリントやポリシー定義
+* Azure Government
+    * Microsoft Azure サービスの別のインスタンス
+    * 米国連邦政府機関、州と地方の自治体、およびそれらのソリューションプロバイダーのセキュリティとコンプライアンスのニーズに対応
+* Azure China 21Vianet
+    * 中国に拠点を置くクラウドサービスの物理的に分離されたインスタンス
+
+
+https://docs.microsoft.com/ja-jp/learn/paths/az-900-describe-azure-cost-management-service-level-agreements/
 
 
