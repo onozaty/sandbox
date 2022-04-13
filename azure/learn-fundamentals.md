@@ -334,7 +334,26 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
 * Azure China 21Vianet
     * 中国に拠点を置くクラウドサービスの物理的に分離されたインスタンス
 
+* 総保有コスト(TCO)計算ツール
+    * オンプレからAzureへの移行について計算
+* 料金計算ツール
+* Azure Advisor
+    * 使用状況を監視、不要なリソースを削除
+* Azure Reservations
+    * 予約することで割引
+* Azure Cost Management + Billing
+    * リソース最適化のための推奨事項を受け取る
+* 使用していない仮想マシンの割り当て解除でコスト節約
+    * CPUやネットワークの料金がかからなくなる
+* サブスクリプションの使用制限を使用して、想定外の支出を防ぐ
+* 低コストの場所およびリージョンを選択
+* タグを適用してコストの所有者を識別
 
-https://docs.microsoft.com/ja-jp/learn/paths/az-900-describe-azure-cost-management-service-level-agreements/
+* SLA
+    * ダウンタイムの割合
+* サービスクレジット
+    * サービスがSLAどおりに機能しなかった場合の補償として割引
+* Azureの状態にて、Azureサービスの正常性を確認
+* 冗長性を追加して可用性を高める
 
 
