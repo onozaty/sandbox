@@ -19,6 +19,10 @@ Microsoft Azure Virtual Training Day: Azure Fundamentals を受講すると、�
 * [Azure の基礎 第 5 部:ID、ガバナンス、プライバシー、およびコンプライアンス機能に関する説明 \(AZ\-900\) \- Learn \| Microsoft Docs](https://docs.microsoft.com/ja-jp/learn/paths/az-900-describe-identity-governance-privacy-compliance-features/)
 * [Azure の基礎 第 6 部:Azure Cost Management およびサービス レベル アグリーメントに関する説明 \(AZ\-900\) \- Learn \| Microsoft Docs](https://docs.microsoft.com/ja-jp/learn/paths/az-900-describe-azure-cost-management-service-level-agreements/)
 
+### 問題集
+
+* [これだけで合格！AZ\-900: Microsoft Azure Fundamentals模擬試験問題集（7回分430問） \| Udemy](https://www.udemy.com/course/az-900-microsoft-azure-fundamentals4176/)
+
 ## メモ
 
 ### Azure の主要概念に関する説明
