@@ -17,3 +17,15 @@ Power Platform系の認定試験はこれだけ
 * [Power Apps アプリケーションを文書化およびテストする \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/document-test-powerapps-app/)
 * [Power Apps のキャンバス アプリに命令型の開発手法を利用する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/use-imperative-dev-techniques-powerapps-canvas-app/)
 * [Power Apps のキャンバス アプリでテーブル、レコード、コレクションを使用する式を作成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/author-advanced-formulas-powerapps/)
+* [Power Apps キャンバス アプリでカスタムの更新を実行する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/perform-custom-updates-powerapps-canvas-app/)
+* [Power Apps キャンバス アプリでテストとパフォーマンスの確認を完了する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/testing-performance-checks-powerapps/)
+
+
+## メモ
+
+### マイリストをデータソースにする場合
+
+下記のように指定する必要あり
+
+* https://xxxxxx.sharepoint.com/personal/yyyyyyyyy
+
