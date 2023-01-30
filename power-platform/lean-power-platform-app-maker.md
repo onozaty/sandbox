@@ -1,5 +1,3 @@
-Power Platform系の認定試験はこれだけ
-
 * [Microsoft 認定資格: Power Platform アプリ開発者アソシエイト \- Certifications \| Microsoft Learn](https://learn.microsoft.com/ja-jp/certifications/power-platform-app-maker/)
 
 30日チャレンジがあるので、それを経由すると、受験料が半額になる
@@ -28,4 +26,8 @@ Power Platform系の認定試験はこれだけ
 下記のように指定する必要あり
 
 * https://xxxxxx.sharepoint.com/personal/yyyyyyyyy
+
+### PowerAutomateでSharePoint触るとき
+
+マイコネクション→新しい接続の追加でログインしないとダメな時があった
 
