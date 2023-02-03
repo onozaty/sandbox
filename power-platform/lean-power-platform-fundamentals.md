@@ -8,3 +8,6 @@
 
 * [PL\-900: Microsoft Power Platform Fundamentals \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/paths/power-plat-fundamentals/)
 
+## 試験対策講座
+
+[PL\-900 : Microsoft Power Platform Fundamentals 試験対策](https://info.microsoft.com/JA-PowerApps-WBNR-FY21-05May-03-MKTOFY21PL900PrepSessionOndemandWebinar-SRDEM73329_LP02OnDemandRegistration-ForminBody.html)
