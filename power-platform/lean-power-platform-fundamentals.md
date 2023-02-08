@@ -11,3 +11,9 @@
 ## 試験対策講座
 
 [PL\-900 : Microsoft Power Platform Fundamentals 試験対策](https://info.microsoft.com/JA-PowerApps-WBNR-FY21-05May-03-MKTOFY21PL900PrepSessionOndemandWebinar-SRDEM73329_LP02OnDemandRegistration-ForminBody.html)
+
+
+## 模擬問題
+
+[プラクティス評価 \| Microsoft Learn](https://learn.microsoft.com/ja-jp/certifications/exams/pl-900/practice/assessment?assessment-type=practice&assessmentId=34)
+
