@@ -23,7 +23,8 @@
 * [Dataverse の概要 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/introduction-common-data-service/)
 * [Microsoft Dataverse で環境を作成および管理する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/create-manage-environments/)
 * [Dataverse でのテーブルの管理 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/create-manage-entities/)
-
+* [Microsoft Dataverse でテーブル内の列を作成および管理する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/create-manage-fields-within-entity/)
+* [Microsoft Dataverse で選択肢を使用する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/working-with-option-sets/)
 
 ## メモ
 
