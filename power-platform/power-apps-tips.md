@@ -22,6 +22,11 @@ If(
 Office365ユーザー.UserProfile(User().Email)
 ```
 
+## Formで固定値を入れたい場合
+
+カードコントロールの `Update` プロパティに値を固定で入れておく。  
+カード自体は非表示でもOK。
+
 ## JSONのパース
 
 * [Power Apps の ParseJSON 関数 \(実験的\) \- Power Platform \| Microsoft Learn](https://learn.microsoft.com/ja-jp/power-platform/power-fx/reference/function-parsejson)

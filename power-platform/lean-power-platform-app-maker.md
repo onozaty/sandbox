@@ -25,6 +25,10 @@
 * [Dataverse でのテーブルの管理 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/create-manage-entities/)
 * [Microsoft Dataverse でテーブル内の列を作成および管理する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/create-manage-fields-within-entity/)
 * [Microsoft Dataverse で選択肢を使用する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/working-with-option-sets/)
+* [Microsoft Dataverse でデータを読み込み/エクスポートし、データ ビューを作成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/load-export-data-create-data-views/)
+* [Microsoft Dataverse のセキュリティ ロールの基本 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-security-roles/)
+* [Microsoft Dataverse の管理オプションを使用する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/use-admin-options-cds/)
+* [Microsoft Dataverse でテーブルを作成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-powerapps-common-data-service/)
 
 ## メモ
 
