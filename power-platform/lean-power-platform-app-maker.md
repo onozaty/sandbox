@@ -29,6 +29,8 @@
 * [Microsoft Dataverse のセキュリティ ロールの基本 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-security-roles/)
 * [Microsoft Dataverse の管理オプションを使用する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/use-admin-options-cds/)
 * [Microsoft Dataverse でテーブルを作成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-powerapps-common-data-service/)
+* [Power Apps のモデル駆動型アプリに関する入門情報 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-model-driven-apps-in-powerapps/)
+
 
 ## メモ
 
