@@ -30,7 +30,7 @@
 * [Microsoft Dataverse の管理オプションを使用する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/use-admin-options-cds/)
 * [Microsoft Dataverse でテーブルを作成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-powerapps-common-data-service/)
 * [Power Apps のモデル駆動型アプリに関する入門情報 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-model-driven-apps-in-powerapps/)
-
+* [モデル駆動型アプリでフォーム、グラフ、およびダッシュボードを構成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/configure-model-driven-apps-customer-engagement-apps/?WT.mc_id=cloudskillschallenge_B7BFF832-B9EC-495C-8213-26471EB30B38)
 
 ## メモ
 
@@ -43,4 +43,3 @@
 ### PowerAutomateでSharePoint触るとき
 
 マイコネクション→新しい接続の追加でログインしないとダメな時があった
-
