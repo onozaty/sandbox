@@ -31,6 +31,13 @@
 * [Microsoft Dataverse でテーブルを作成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-powerapps-common-data-service/)
 * [Power Apps のモデル駆動型アプリに関する入門情報 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-model-driven-apps-in-powerapps/)
 * [モデル駆動型アプリでフォーム、グラフ、およびダッシュボードを構成する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/configure-model-driven-apps-customer-engagement-apps/?WT.mc_id=cloudskillschallenge_B7BFF832-B9EC-495C-8213-26471EB30B38)
+* [Power BI を使用してビルドを開始する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-power-bi/)
+* [Power BI でデータをモデル化する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/model-data-power-bi/)
+* [Power BI のビジュアルの使用 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/visuals-in-power-bi/)
+* [Power BI で発行および共有する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/publish-share-power-bi/)
+* [AI Builder に関する入門情報 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-with-ai-builder/)
+* [AI Builder でのモデルの管理 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/manage-models/)
+
 
 ## メモ
 
