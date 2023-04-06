@@ -1,12 +1,10 @@
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Microsoft.Graph;
 using System.Text;
 using Azure.Identity;
@@ -35,7 +33,7 @@ namespace Company.Function
 
             StringBuilder stringBuilder = new StringBuilder();
             foreach(var user in result.Value) {
-                stringBuilder.AppendLine($"{user.Id}: {user.DisplayName}");
+                stringBuilder.AppendLine($"{user.Mail}: {user.DisplayName}");
             }
 
             return new OkObjectResult(stringBuilder.ToString());
