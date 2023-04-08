@@ -20,6 +20,11 @@ Azure上では、マネージドIDを利用して認証する。
 
 * [マネージド ID \- Azure App Service \| Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/app-service/overview-managed-identity?tabs=portal%2Chttp)
 
+アプリ登録で、クライアントシークレットでもいける。  
+その場合には、Log Analytics側でもアプリに対してロールを割り当てる必要があるので注意。
+
+* [API アクセスと認証 \- Azure Monitor \| Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/api/access-api?view=azuremgmtcdn-fluent-1.0.0#set-up-authentication)
+
 ## 環境変数
 
 * [Azure Functions を使用する C\# クラス ライブラリ関数を開発する \| Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/azure-functions/functions-dotnet-class-library?tabs=v4%2Ccmd#environment-variables)
