@@ -1,6 +1,2 @@
 postgresql_databases:
-  - name: sample
-
-postgresql_users:
-  - name: sample
-    pass: sample
+  - name: dvdrental

@@ -3,3 +3,15 @@
     - ./vars.yml
   roles:
     - postgresql
+  tasks:
+    - name: Copy dump
+      copy: 
+        src: '{{ playbook_dir }}/dvdrental.tar'
+        dest: /tmp
+    - name: Restore
+      become: yes
+      become_user: '{{ postgresql_admin_user }}'
+      postgresql_db:
+        state: restore
+        name: dvdrental
+        target: /tmp/dvdrental.tar
