@@ -237,6 +237,35 @@ ORDER BY
 (9 rows)
 ```
 
+####  generate_subscripts
+
+ARRAYを引数にとって、添え字となる値の集合を返す generate_subscripts を利用するともっと簡単にできました。
+
+```sql
+SELECT
+  *
+  , unnest(names) AS name
+  , generate_subscripts(names, 1) AS order
+FROM
+  table1
+;
+```
+
+```
+ id |   names   | name | order
+----+-----------+------+-------
+  1 | {a,b}     | a    |     1
+  1 | {a,b}     | b    |     2
+  3 | {a,b,b,a} | a    |     1
+  3 | {a,b,b,a} | b    |     2
+  3 | {a,b,b,a} | b    |     3
+  3 | {a,b,b,a} | a    |     4
+  2 | {z,y,x}   | z    |     1
+  2 | {z,y,x}   | y    |     2
+  2 | {z,y,x}   | x    |     3
+(9 rows)
+```
+
 
 ### 使えそうなテーブル
 
