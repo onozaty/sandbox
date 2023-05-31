@@ -189,7 +189,53 @@ FROM (
 
 #### 再帰SQL
 
+配列の先頭から順に再帰SQLで辿っていく。
 
+```sql
+WITH RECURSIVE previous AS(
+  -- 配列の先頭を起点に(PostgreSQLの配列のインデックスは1から)
+  SELECT
+    *
+    , names[1] AS name
+    , 1 AS order 
+  FROM
+    table1
+  UNION ALL
+  SELECT
+    table1.*
+    , table1.names[previous.order + 1] AS name
+    , previous.order + 1 AS order 
+  FROM
+    previous
+    INNER JOIN table1
+      USING(id)
+  WHERE
+    table1.names[previous.order + 1] IS NOT NULL
+)
+SELECT
+  *
+FROM
+  previous
+ORDER BY
+  previous.id
+  , previous.order
+;
+```
+
+```
+ id |   names   | name | order
+----+-----------+------+-------
+  1 | {a,b}     | a    |     1
+  1 | {a,b}     | b    |     2
+  2 | {z,y,x}   | z    |     1
+  2 | {z,y,x}   | y    |     2
+  2 | {z,y,x}   | x    |     3
+  3 | {a,b,b,a} | a    |     1
+  3 | {a,b,b,a} | b    |     2
+  3 | {a,b,b,a} | b    |     3
+  3 | {a,b,b,a} | a    |     4
+(9 rows)
+```
 
 
 ### 使えそうなテーブル
