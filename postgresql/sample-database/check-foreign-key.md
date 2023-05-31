@@ -2,7 +2,199 @@
 
 ## メモ
 
-### pg_constraint
+### ARRAY を番号振ったうえで、行として扱う方法
+
+これができると楽なので考える。
+
+```sql
+CREATE TABLE table1 AS 
+SELECT 
+  *
+FROM
+(
+  VALUES
+    (1, ARRAY['a', 'b']),
+    (3, ARRAY['a', 'b', 'b', 'a']),
+    (2, ARRAY['z', 'y', 'x'])
+) AS t (id, names)
+;
+```
+
+```sql
+SELECT
+  *
+FROM
+  table1
+;
+```
+
+```
+ id |   names
+----+-----------
+  1 | {a,b}
+  3 | {a,b,b,a}
+  2 | {z,y,x}
+(3 rows)
+```
+
+単にunnestする。
+
+```sql
+SELECT
+  *
+  , unnest(names) AS name
+FROM
+  table1
+;
+```
+
+```
+ id |   names   | name
+----+-----------+------
+  1 | {a,b}     | a
+  1 | {a,b}     | b
+  3 | {a,b,b,a} | a
+  3 | {a,b,b,a} | b
+  3 | {a,b,b,a} | b
+  3 | {a,b,b,a} | a
+  2 | {z,y,x}   | z
+  2 | {z,y,x}   | y
+  2 | {z,y,x}   | x
+(9 rows)
+```
+
+これにARRAY内での順序に基づく番号を振りたい。
+
+```
+ id |   names   | name | order
+----+-----------+------+-------
+  1 | {a,b}     | a    |     1
+  1 | {a,b}     | b    |     2
+  2 | {z,y,x}   | z    |     1
+  2 | {z,y,x}   | y    |     2
+  2 | {z,y,x}   | x    |     3
+  3 | {a,b,b,a} | a    |     1
+  3 | {a,b,b,a} | b    |     2
+  3 | {a,b,b,a} | b    |     3
+  3 | {a,b,b,a} | a    |     4
+```
+
+#### unnest + row_number
+
+とりあえず、全体で通番振る。  
+unnest したものにWindows関数の`row_number`使って全体に対して通番振る形。
+
+
+```sql
+SELECT
+  *
+  , row_number() OVER() AS order
+FROM (
+  SELECT
+    *
+    , unnest(names) AS name
+  FROM
+    table1
+) temp
+;
+```
+
+```
+ id |   names   | name | order
+----+-----------+------+-------
+  1 | {a,b}     | a    |     1
+  1 | {a,b}     | b    |     2
+  3 | {a,b,b,a} | a    |     3
+  3 | {a,b,b,a} | b    |     4
+  3 | {a,b,b,a} | b    |     5
+  3 | {a,b,b,a} | a    |     6
+  2 | {z,y,x}   | z    |     7
+  2 | {z,y,x}   | y    |     8
+  2 | {z,y,x}   | x    |     9
+(9 rows)
+```
+
+ARRAYでの順序は崩れずに全体としての通番となった。ただ、ORDER BY指定していないので、これが必ずこの順番になることが保証されるのかはわからなかった。
+unnestは配列の順番に展開されることは保証されている(ドキュメント上にも記載)が、その後にrow_numberでのクエリで保証されるかがわからない。  
+(Sortが発生しないので、大丈夫そうな気はするが、保証されるものなのか判断できない)
+
+OVER で PARTITION BY 指定したら、各ARRAY毎の順番になりそうだなとも思ったが、これだと順序が狂う場合があった。 PARTITION BY を行うことでSortが発生するため。
+
+```sql
+SELECT
+  *
+  , row_number() OVER(PARTITION BY id) AS order
+FROM (
+  SELECT
+    *
+    , unnest(names) AS name
+  FROM
+    table1
+) temp
+;
+```
+
+```
+ id |   names   | name | order
+----+-----------+------+-------
+  1 | {a,b}     | a    |     1
+  1 | {a,b}     | b    |     2
+  2 | {z,y,x}   | x    |     1
+  2 | {z,y,x}   | z    |     2
+  2 | {z,y,x}   | y    |     3
+  3 | {a,b,b,a} | a    |     1
+  3 | {a,b,b,a} | a    |     2
+  3 | {a,b,b,a} | b    |     3
+  3 | {a,b,b,a} | b    |     4
+(9 rows)
+```
+
+全体に対して`row_number() OVER()`で振った後に、さらに`row_number() OVER(PARTITION BY id ORDER BY order)`のような形で、期待する結果を作ることはできた。
+
+```sql
+SELECT
+  id
+  , names
+  , name
+  , row_number() OVER(PARTITION BY id ORDER BY overall_order) AS order
+FROM (
+  SELECT
+    *
+    , row_number() OVER() AS overall_order
+  FROM (
+    SELECT
+      *
+      , unnest(names) AS name
+    FROM
+      table1
+  ) temp1
+) temp2
+;
+```
+
+```
+ id |   names   | name | order
+----+-----------+------+-------
+  1 | {a,b}     | a    |     1
+  1 | {a,b}     | b    |     2
+  2 | {z,y,x}   | z    |     1
+  2 | {z,y,x}   | y    |     2
+  2 | {z,y,x}   | x    |     3
+  3 | {a,b,b,a} | a    |     1
+  3 | {a,b,b,a} | b    |     2
+  3 | {a,b,b,a} | b    |     3
+  3 | {a,b,b,a} | a    |     4
+(9 rows)
+```
+
+#### 再帰SQL
+
+
+
+
+### 使えそうなテーブル
+
+#### pg_constraint
 
 制約に関する情報が格納されるテーブル。
 
@@ -47,7 +239,7 @@ Indexes:
 
 * https://www.postgresql.jp/document/15/html/catalog-pg-constraint.html
 
-### pg_index
+#### pg_index
 
 インデックス情報が格納されるテーブル。
 
@@ -84,7 +276,7 @@ Indexes:
 
 * https://www.postgresql.jp/document/15/html/catalog-pg-index.html
 
-### pg_class
+#### pg_class
 
 テーブル、インデックス、ビューなどの情報が格納されるテーブル。
 
@@ -134,7 +326,7 @@ Indexes:
 
 * https://www.postgresql.jp/document/15/html/catalog-pg-class.html
 
-### pg_attribute
+#### pg_attribute
 
 テーブルの列情報が格納されたテーブル。
 
@@ -176,7 +368,7 @@ Indexes:
 
 * https://www.postgresql.jp/document/15/html/catalog-pg-attribute.html
 
-### information_schema.table_constraints
+#### information_schema.table_constraints
 
 ユーザが所有する制約が参照できるビュー。
 
@@ -200,7 +392,7 @@ dvdrental=# \d information_schema.table_constraints
 
 * https://www.postgresql.jp/document/15/html/infoschema-table-constraints.html
 
-### information_schema.key_column_usage
+#### information_schema.key_column_usage
 
 制約によって制限をうけている全ての列が参照できるビュー。
 
