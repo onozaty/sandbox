@@ -1,5 +1,31 @@
 * PostgreSQL 15.3
 
+## FKの一覧
+
+```sql
+SELECT
+  cons.*
+  , pg_attribute.attname 
+FROM (
+  SELECT
+    pg_constraint.conname
+    , pg_constraint.conrelid
+    , pg_class.relname AS table_name
+    , UNNEST(pg_constraint.conkey) AS conkey
+    , generate_subscripts(pg_constraint.conkey, 1) AS order
+  FROM
+    pg_constraint
+    INNER JOIN pg_class
+      ON (pg_constraint.conrelid = pg_class.oid)
+  WHERE
+    pg_constraint.contype = 'f'
+) cons
+  INNER JOIN pg_attribute
+    ON (cons.conrelid = pg_attribute.attrelid AND cons.conkey = pg_attribute.attnum) 
+
+;
+```
+
 ## メモ
 
 ### ARRAY を番号振ったうえで、行として扱う方法
@@ -210,7 +236,7 @@ WITH RECURSIVE previous AS(
     INNER JOIN table1
       USING(id)
   WHERE
-    table1.names[previous.order + 1] IS NOT NULL
+    cardinality(table1.names) > previous.order
 )
 SELECT
   *
