@@ -4,8 +4,9 @@
 
 ```sql
 SELECT
-  cons.*
-  , pg_attribute.attname 
+  cons.conname AS constraint_name
+  , cons.table_name
+  , array_agg(pg_attribute.attname ORDER BY cons.order) AS column_names
 FROM (
   SELECT
     pg_constraint.conname
@@ -22,7 +23,9 @@ FROM (
 ) cons
   INNER JOIN pg_attribute
     ON (cons.conrelid = pg_attribute.attrelid AND cons.conkey = pg_attribute.attnum) 
-
+GROUP BY
+  cons.conname
+  , cons.table_name
 ;
 ```
 
