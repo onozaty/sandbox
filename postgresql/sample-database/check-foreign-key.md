@@ -4,13 +4,17 @@
 
 ```sql
 SELECT
-  cons.conname AS constraint_name
-  , cons.table_name
-  , array_agg(pg_attribute.attname ORDER BY cons.order) AS column_names
+  base.namespace_name 
+  , base.constraint_name
+--  , base.contype
+  , base.table_name
+  , array_agg(pg_attribute.attname ORDER BY base.order) AS column_names
 FROM (
   SELECT
-    pg_constraint.conname
+    pg_constraint.conname AS constraint_name
     , pg_constraint.conrelid
+    , pg_namespace.nspname AS namespace_name
+    , pg_constraint.contype
     , pg_class.relname AS table_name
     , UNNEST(pg_constraint.conkey) AS conkey
     , generate_subscripts(pg_constraint.conkey, 1) AS order
@@ -18,14 +22,157 @@ FROM (
     pg_constraint
     INNER JOIN pg_class
       ON (pg_constraint.conrelid = pg_class.oid)
-  WHERE
-    pg_constraint.contype = 'f'
-) cons
+    INNER JOIN pg_namespace
+      ON (pg_class.relnamespace = pg_namespace.oid)
+) base
   INNER JOIN pg_attribute
-    ON (cons.conrelid = pg_attribute.attrelid AND cons.conkey = pg_attribute.attnum) 
+    ON (base.conrelid = pg_attribute.attrelid AND base.conkey = pg_attribute.attnum) 
+WHERE
+  base.contype = 'f' -- FKで絞る
 GROUP BY
-  cons.conname
-  , cons.table_name
+  base.namespace_name
+  , base.constraint_name
+--  , base.contype
+  , base.table_name
+;
+```
+
+## INDEXの一覧
+
+```sql
+SELECT
+  base.namespace_name
+  , base.index_name
+  , base.table_name
+  , array_agg(pg_attribute.attname ORDER BY base.order) AS column_names
+  , base.is_functional
+  , base.is_partial
+  , pg_get_indexdef(base.indexrelid) AS index_def
+FROM (
+  SELECT
+    pg_index.indexrelid
+    , index_class.relname AS index_name
+    , pg_index.indrelid
+    , pg_namespace.nspname AS namespace_name
+    , table_class.relname AS table_name
+    , UNNEST(pg_index.indkey) AS indkey 
+    , generate_subscripts(pg_index.indkey, 1) AS order
+    , pg_index.indexprs IS NOT NULL AS is_functional -- 関数INDEX
+    , pg_index.indpred IS NOT NULL AS is_partial -- 部分INDEX
+  FROM
+    pg_index
+    INNER JOIN pg_class index_class
+      ON (pg_index.indexrelid  = index_class.oid)
+    INNER JOIN pg_class table_class
+      ON (pg_index.indrelid   = table_class.oid)
+    INNER JOIN pg_namespace
+      ON (index_class.relnamespace = pg_namespace.oid)
+) base
+  INNER JOIN pg_attribute
+    ON (base.indrelid = pg_attribute.attrelid AND base.indkey = pg_attribute.attnum) 
+GROUP BY
+  base.namespace_name
+  , base.index_name
+  , base.table_name
+  , base.is_functional
+  , base.is_partial
+  , base.indexrelid
+;
+```
+
+## FK に一致する INDEX を探す
+
+```sql
+WITH fk AS (
+  SELECT
+    base.namespace_name 
+    , base.constraint_name
+    , base.table_name
+    , array_agg(pg_attribute.attname ORDER BY base.order) AS column_names
+  FROM (
+    SELECT
+      pg_constraint.conname AS constraint_name
+      , pg_constraint.conrelid
+      , pg_namespace.nspname AS namespace_name
+      , pg_constraint.contype
+      , pg_class.relname AS table_name
+      , UNNEST(pg_constraint.conkey) AS conkey
+      , generate_subscripts(pg_constraint.conkey, 1) AS order
+    FROM
+      pg_constraint
+      INNER JOIN pg_class
+        ON (pg_constraint.conrelid = pg_class.oid)
+      INNER JOIN pg_namespace
+        ON (pg_class.relnamespace = pg_namespace.oid)
+  ) base
+    INNER JOIN pg_attribute
+      ON (base.conrelid = pg_attribute.attrelid AND base.conkey = pg_attribute.attnum) 
+  WHERE
+    base.contype = 'f' -- FKで絞る
+  GROUP BY
+    base.namespace_name
+    , base.constraint_name
+    , base.table_name
+), indx AS (
+  SELECT
+    base.namespace_name
+    , base.index_name
+    , base.table_name
+    , array_agg(pg_attribute.attname ORDER BY base.order) AS column_names
+    , pg_get_indexdef(base.indexrelid) AS index_def
+  FROM (
+    SELECT
+      pg_index.indexrelid
+      , index_class.relname AS index_name
+      , pg_index.indrelid
+      , pg_namespace.nspname AS namespace_name
+      , table_class.relname AS table_name
+      , UNNEST(pg_index.indkey) AS indkey 
+      , generate_subscripts(pg_index.indkey, 1) AS order
+      , pg_index.indexprs IS NOT NULL AS is_functional -- 関数INDEX
+      , pg_index.indpred IS NOT NULL AS is_partial -- 部分INDEX
+    FROM
+      pg_index
+      INNER JOIN pg_class index_class
+        ON (pg_index.indexrelid  = index_class.oid)
+      INNER JOIN pg_class table_class
+        ON (pg_index.indrelid   = table_class.oid)
+      INNER JOIN pg_namespace
+        ON (index_class.relnamespace = pg_namespace.oid)
+  ) base
+    INNER JOIN pg_attribute
+      ON (base.indrelid = pg_attribute.attrelid AND base.indkey = pg_attribute.attnum) 
+  WHERE
+    -- 関数INDEXと部分INDEXは除外
+    base.is_functional = FALSE
+    AND base.is_partial = FALSE
+  GROUP BY
+    base.namespace_name
+    , base.index_name
+    , base.table_name
+    , base.is_functional
+    , base.is_partial
+    , base.indexrelid
+)
+SELECT
+  fk.*
+  , indx.index_name
+  , indx.column_names AS index_column_names
+  , indx.index_def
+FROM
+  fk
+  LEFT JOIN indx
+    ON(
+      fk.namespace_name = indx.namespace_name
+      AND fk.table_name = indx.table_name
+      -- FKのカラムと同じ数にしてINDEXと一致するか
+      -- (FKのカラムと前方一致であれば、そのINDEXが利用されるはずなので)
+      AND fk.column_names = indx.column_names[1:cardinality(fk.column_names)]
+    )
+ORDER BY
+  fk.namespace_name
+  , fk.table_name
+  , fk.constraint_name
 ;
 ```
 
