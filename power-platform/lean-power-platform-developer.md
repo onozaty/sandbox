@@ -12,3 +12,4 @@ The Microsoft Learn Cloud Skills Challenge で無料で受けられる。
 * [Process Advisor でビジネス プロセスを最適化する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/business-process-optimization-process-advisor/?WT.mc_id=cloudskillschallenge_69681a7d-f052-4034-bf05-19a6dcf1bbec)
 * [Microsoft Dataverse Web API を使用する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/common-data-service-web-api/?WT.mc_id=cloudskillschallenge_69681a7d-f052-4034-bf05-19a6dcf1bbec)
 * [Microsoft Dataverse と Azure ソリューションを統合する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/integrate-common-data-service-azure-solutions/?WT.mc_id=cloudskillschallenge_69681a7d-f052-4034-bf05-19a6dcf1bbec)
+* [Power Apps component framework の使用を開始する \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/modules/get-started-component-framework/?WT.mc_id=cloudskillschallenge_69681a7d-f052-4034-bf05-19a6dcf1bbec)
