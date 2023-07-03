@@ -3,3 +3,6 @@
 flyway-schemaspy/schemaspy/output/
 digital-signature/java/digital-signature/.gradle/
 digital-signature/java/digital-signature/bin/
+digital-signature/csharp/DigitalSignature/.vs/
+digital-signature/csharp/DigitalSignature/**/bin/
+digital-signature/csharp/DigitalSignature/**/obj/
