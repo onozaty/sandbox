@@ -1,3 +1,5 @@
 **/.vagrant/
 **/playbook.retry
 flyway-schemaspy/schemaspy/output/
+digital-signature/java/digital-signature/.gradle/
+digital-signature/java/digital-signature/bin/
