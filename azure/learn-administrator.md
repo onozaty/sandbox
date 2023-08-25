@@ -11,7 +11,7 @@
 * [x] [AZ\-104:Azure でのストレージの実装と管理 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/paths/az-104-manage-storage/)
 * [x] [AZ\-104:Azure のコンピューティング リソースのデプロイと管理 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/paths/az-104-manage-compute-resources/)
 * [x] [AZ\-104:Azure 管理者向けの仮想ネットワークの構成と管理 \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/paths/az-104-manage-virtual-networks/)
-* [ ] [AZ\-104:Azure リソースの監視とバックアップ \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/paths/az-104-monitor-backup-resources/)
+* [x] [AZ\-104:Azure リソースの監視とバックアップ \- Training \| Microsoft Learn](https://learn.microsoft.com/ja-jp/training/paths/az-104-monitor-backup-resources/)
 
 ### 問題集
 
