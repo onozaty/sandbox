@@ -15,6 +15,7 @@
 
 ### 問題集
 
+* [受講生30万講師のAZ\-104: Microsoft Azure Administrator模擬試験問題集（320問） \| Udemy](https://www.udemy.com/course/30az-104-microsoft-azure-administrator240/)
 
 ## メモ
 
