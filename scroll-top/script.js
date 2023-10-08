@@ -1,16 +1,19 @@
-const scrollButton = document.getElementById('scrollButton');
+document.addEventListener('DOMContentLoaded', function() {
 
-scrollButton.addEventListener('click', function() {
-  window.scroll({top: 0, behavior: 'smooth'});
+  const scrollTopButton = document.getElementById('scrollTopButton');
+
+  scrollTopButton.addEventListener('click', function() {
+    window.scroll({top: 0, behavior: 'smooth'});
+  });
+  
+  const judgeShowScrollButton = function() {
+    if (window.scrollY > 0) {
+      scrollTopButton.classList.add('active');
+    } else {
+      scrollTopButton.classList.remove('active');
+    }
+  };
+  
+  window.addEventListener('scroll', judgeShowScrollButton);
+  judgeShowScrollButton();
 });
-
-const judgeShowScrollButton = function() {
-  if (window.scrollY > 0) {
-    scrollButton.classList.add('active');
-  } else {
-    scrollButton.classList.remove('active');
-  }
-};
-
-window.addEventListener('scroll', judgeShowScrollButton);
-judgeShowScrollButton();

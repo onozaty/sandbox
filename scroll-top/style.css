@@ -4,11 +4,12 @@ body {
   margin-right: auto;
 }
 
-#scrollButton {
+#scrollTopButton {
   position: fixed;
   bottom: 10px;
   right: 10px;
   height: 50px;
+  padding-top: 6px;
   width: 50px;
   color: #ffffff;
   font-size: 32px;
@@ -21,13 +22,14 @@ body {
   visibility: hidden;
 }
 
-#scrollButton.active {
+#scrollTopButton.active {
   transition: 0.5s;
   opacity: 0.5;
   visibility: visible;
 }
 
-#scrollButton:hover {
+#scrollTopButton:hover {
+  cursor: pointer;
   opacity: 0.8;
   transition: 0.5s;
 }
