@@ -1,3 +1,5 @@
+* https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/what-is-sam.html
+
 Vagrant 上で試す。Ubuntu 22.04 を利用。
 
 ## Docker のインストール
@@ -43,3 +45,23 @@ sudo ./sam-installation/install
 ```
 sam --version
 ```
+
+## チュートリアル
+
+下記でHello Worldサンプルアリケーションを試してみる。
+
+* https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html
+
+pipがインストールされている必要があるようなので、pipをインストールする。
+
+```
+sudo apt install python3-pip
+```
+
+あと、`template.yaml`の`Runtime: python3.9`を`Runtime: python3.10`に変える必要があった。  
+(UbuntuでインストールされているのがPython 3.10だったので)
+
+aws cli もインストールして、クレデンシャルを設定する必要があった。
+
+* https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
+
