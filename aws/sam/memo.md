@@ -65,3 +65,21 @@ aws cli もインストールして、クレデンシャルを設定する必要
 
 * https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
 
+### TypeScriptで
+
+nodejsのインストール。
+
+```
+sudo apt update
+sudo apt install nodejs npm
+sudo npm -g install n
+sudo n stable
+sudo apt purge nodejs npm
+sudo apt autoremove
+```
+
+`sam build`で`esbuild`が無いと怒られたのでインストール。
+
+```
+sudo npm install -g esbuild
+```
