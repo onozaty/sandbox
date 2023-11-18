@@ -1,23 +1,13 @@
-- name: Pull Mongo DB image
-  shell: docker pull mongo
-
-- name: Pull Rocket Chat image
-  shell: docker pull rocketchat/rocket.chat
-
-- name: Pull Hubot image
-  shell: docker pull rocketchat/hubot-rocketchat
-
+# https://docs.rocket.chat/deploy/deploy-rocket.chat/deploy-with-docker-and-docker-compose#deploy-rocket.chat-on-docker
 - name: Create application directory
   file: path={{ item }} state=directory
   with_items:
-    - /opt/rocket.chat/data/runtime/db
-    - /opt/rocket.chat/data/dump
-    - /opt/rocket.chat/scripts
+    - /opt/rocket.chat
 
 - name: Copy docker-compose.yml
-  copy: src=docker-compose.yml dest=/opt/rocket.chat/docker-compose.yml
+  copy: src=compose.yml dest=/opt/rocket.chat/compose.yml
 
 - name: Start docker compose
-  shell: /usr/local/bin/docker-compose up -d
+  shell: docker compose up -d
   args:
     chdir: /opt/rocket.chat
