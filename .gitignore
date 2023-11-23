@@ -6,3 +6,4 @@ digital-signature/java/digital-signature/bin/
 digital-signature/csharp/DigitalSignature/.vs/
 digital-signature/csharp/DigitalSignature/**/bin/
 digital-signature/csharp/DigitalSignature/**/obj/
+digital-signature/node/digital-signature/node_modules/
