@@ -1,3 +1,7 @@
+# デジタル署名
+
+PKCS#1 v1.5 (RSA) でハッシュ化は SHA256 を使ったデジタル署名＆検証を各言語で書いてみる。
+
 ## 秘密鍵/公開鍵作成
 
 RSAで鍵長2048bitの秘密鍵を作成。
@@ -19,6 +23,8 @@ openssl pkcs8 -in private.key -topk8 -out private-pkcs8.key -nocrypt
 ```
 
 ## 各言語
+
+標準のライブラリだけ利用して実装する。
 
 ### Golang
 
@@ -100,6 +106,8 @@ func sha256hash(target string) []byte {
 
 ### Java
 
+標準だと PKCS#8 形式しか対応していないので、PKCS#8 でのコードを記載。 
+
 ```java
 package com.github.onozaty.signature;
 
@@ -175,7 +183,13 @@ public class SignatureUtils {
 }
 ```
 
+PKCS#1 形式を利用する際には、Bouncy Castle を使うと良い。
+
+* [The Legion of the Bouncy Castle Java Cryptography APIs](https://www.bouncycastle.org/java.html)
+
 ### C#
+
+Javaと同じく、標準だと PKCS#8 形式しか対応していないので、PKCS#8 でのコードを記載。 
 
 ```csharp
 using System.Security.Cryptography;
@@ -237,3 +251,7 @@ namespace DigitalSignature
     }
 }
 ```
+
+PKCS#1 形式を利用する際には、Bouncy Castle を使うと良い。
+
+* [The Legion of the Bouncy Castle C\# Cryptography APIs](https://www.bouncycastle.org/csharp/index.html)
