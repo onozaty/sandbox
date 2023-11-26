@@ -1,10 +1,22 @@
-## SQL/JSON パス式
+# SQL/JSON パス式
 
 - https://www.postgresql.jp/document/15/html/functions-json.html#FUNCTIONS-SQLJSON-PATH
 - https://www.postgresql.jp/document/15/html/datatype-json.html#DATATYPE-JSONPATH
 
-XPath のように、JSON から値を取り出す式を書ける。  
+JSONPath式で、XPath のように、JSON から値を取り出す式を書ける。  
+JSONPathは下記のようなものになる。
+
+* [JSONPath \- XPath for JSON](https://goessner.net/articles/JsonPath/)
+
+PostgreSQLが全部に対応しているわけではなく(例えば`..`はPostgreSQLでは利用できない)、全て一緒ではないので要注意。
+細かいところは、PostgreSQLのマニュアルを確認すること。
+
 パス式は jsonpath データ型として実装されている。SQL では文字列リテラルとしてシングルクォートで囲んで記述。
+
+下記の演算子と
+
+* `@?`
+* `@@`
 
 下記の関数で利用できる。
 
@@ -17,7 +29,7 @@ XPath のように、JSON から値を取り出す式を書ける。
 上記以外にも末尾に`_tz`が付いた同様の関数(`jsonb_path_query_tz`など)がある。  
 これらは`datetime`メソッドを使った式で、タイムゾーンが省略されている場合に実行環境のタイムゾーンをデフォルトとして扱う。
 
-### 基本
+## 基本
 
 下記のような JSON を例として。
 
@@ -61,6 +73,8 @@ INSERT INTO jsons VALUES ('{
 }');
 ```
 
+### アクセサ
+
 JSON自体を指定する変数として`$`変数がある。
 jsonpathとして`$`を指定すると、JSON全体が返却される。
 
@@ -95,4 +109,57 @@ test=> SELECT jsonb_path_query(json, '$.groups[1].name') FROM jsons;
  "GroupB"
 (1 row)
 ```
+
+その他のアクセサは下記を参照。
+
+* https://www.postgresql.jp/document/15/html/datatype-json.html#TYPE-JSONPATH-ACCESSORS
+
+### 演算子とメソッド
+
+jsonpathでは、演算子とメソッドも使える。
+
+たとえば`id`の値に10加算する際には `+ 10` で加算できる。
+
+```sql
+test=> SELECT jsonb_path_query(json, '$.id + 10') FROM jsons;
+ jsonb_path_query
+------------------
+ 11
+(1 row)
+```
+
+`size` メソッドで配列の要素数が取れる。
+
+```sql
+test=> SELECT jsonb_path_query(json, '$.groups.size()') FROM jsons;
+ jsonb_path_query
+------------------
+ 2
+(1 row)
+```
+
+その他の演算子とメソッドは下記を参照。
+
+* https://www.postgresql.jp/document/15/html/functions-json.html#FUNCTIONS-SQLJSON-OP-TABLE
+
+### フィルター式
+
+フィルター式では、クエリとして対象となった項目に対して、一致した条件のものに絞り込むことができる。  
+パス `?` 条件 といった形で書く。
+条件では `@` が現在の項目となるので、それに対して条件を記載する。
+
+例えば、`groups`の`id`が`2`の項目を取り出したい場合には、下記のように書く。  
+`[*]`は配列内の全項目を取り出すもの。
+
+```sql
+test=> SELECT jsonb_path_query(json, '$.groups[*] ? (@.id == 2)') FROM jsons;
+      jsonb_path_query
+-----------------------------
+ {"id": 2, "name": "GroupB"}
+(1 row)
+```
+
+その他のフィルター式は下記を参照。
+
+* https://www.postgresql.jp/document/15/html/functions-json.html#FUNCTIONS-SQLJSON-FILTER-EX-TABLE
 
