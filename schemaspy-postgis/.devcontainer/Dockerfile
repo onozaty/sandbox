@@ -21,3 +21,7 @@ RUN wget -qO- https://download.red-gate.com/maven/release/com/redgate/flyway/fly
     | tar -xvz \
     && sudo ln -s `pwd`/flyway-10.20.1/flyway /usr/local/bin \
     && chmod a+x /usr/local/bin/flyway
+
+# Graphvizのインストール
+RUN apt-get update && apt-get install -y \
+    graphviz
