@@ -1,0 +1,9 @@
+{
+  "[sql]": {
+    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc",
+    "editor.formatOnSave": true
+  },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "SQL-Formatter-VSCode.dialect": "postgresql"
+}
