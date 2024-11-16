@@ -1,7 +1,7 @@
 WITH
   enum_values AS (
     SELECT
-      pg_namespace.nspname AS schema,
+      pg_namespace.nspname AS table_schema,
       pg_type.typname AS enum_name,
       string_agg(
         pg_enum.enumlabel,
@@ -24,12 +24,13 @@ SELECT
   c.column_name,
   CASE
     WHEN c.data_type = 'USER-DEFINED'
-    AND ev.enum_name IS NOT NULL THEN ev.enum_name || ' (' || ev.enum_labels || ')'
+    AND ev.enum_name IS NOT NULL THEN ev.enum_name || '(' || ev.enum_labels || ')'
     ELSE c.udt_name
   END AS column_type,
   c.udt_name AS short_column_type
 FROM
   information_schema.columns c
-  LEFT JOIN enum_values ev ON c.udt_name = ev.enum_name
+  LEFT JOIN enum_values ev ON c.table_schema = ev.table_schema
+  AND c.udt_name = ev.enum_name
 WHERE
   c.table_schema = 'public';
